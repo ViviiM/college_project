@@ -1,0 +1,446 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {}
+
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Playfair Display', serif; */
+
+/* //navbar css */
+.navbar {
+  /* position: sticky; */
+  top: 1px;
+  background-color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  /* text-transform: uppercase; */
+  /* box-shadow: 0 8px 6px -6px gray;
+  --webkit-box-shadow: 0 8px 6px -6px gray;
+  border-bottom: solid gray !important; */
+}
+
+.nav-link {
+  font-weight: bold !important;
+  color: #000000;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  letter-spacing: 3px;
+}
+
+.navbar-collapse {
+  margin-right: 14rem;
+}
+
+/* =============================
+==========footer============= */
+
+.footer {
+  font-family: Poppins, sans-serif;
+  color: gray;
+  padding: 25px;
+  background: white;
+  height: 20rem;
+}
+
+.footer ul li {
+  list-style-type: none;
+  margin-top: 1.2rem;
+}
+
+.footer ul li a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000000;
+  padding: 10px;
+}
+
+.tab {
+  display: flex;
+  justify-content: end;
+}
+
+.tab tr td ul li {
+  width: 8rem;
+}
+
+.tab tr td ul li a {
+  /* text-align: end; */
+
+}
+
+.footer a:hover {
+  color: orangered;
+  border-bottom: 1px solid black;
+}
+
+.icons {
+  font-weight: bold !important;
+  border: 0;
+  background-color: transparent;
+  color: #000;
+  text-decoration: none;
+}
+
+.iconbox {
+  display: flex;
+  gap: 20px;
+  /* margin-right: 1rem; */
+}
+
+.footer div {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer div a {
+  text-decoration: none;
+  color: gray;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.social {
+  padding-left: 5rem;
+  padding-bottom: 2.5rem;
+}
+
+.social a {
+  color: #000000;
+  margin-left: 1.5rem;
+
+}
+
+.social a:hover {
+  border-bottom: 0;
+}
+
+/* =================================
+======== page not found css ======= */
+.pnf {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pnf-title {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-heading {
+  font-weight: normal;
+}
+
+.pnf-btn {
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.pnf-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* ========================================= */
+/* =========contact us ========= */
+.contactus {
+  margin: 0;
+  padding: 0;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HomePage */
+/* carpool.js */
+.head {
+  /* font-size: 17px  ; */
+  font-family: Poppins, sans-serif;
+  font-weight: 900;
+  margin-top: 3rem;
+}
+
+.description {
+  font-size: 20px;
+  width: 25rem;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+}
+
+.description span {
+  font-weight: bolder;
+}
+
+.startbtn {
+  font-family: Poppins, sans-serif;
+  border: 2px solid;
+  border-radius: 1rem;
+  height: 3rem;
+  width: 10rem;
+  font-weight: bold;
+  background-color: white;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  display: flex;
+  font-weight: normal;
+}
+
+.dropdown-menu li {
+  list-style-type: none;
+  width: 10rem;
+}
+
+.dropdown-menu li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.dropdown-menu li:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all linear 0.09s;
+}
+
+.dropdown-menu li:hover a {
+  color: orangered;
+}
+
+
+/* Background */
+
+
+.bg {
+  height: 45rem;
+  width: 100%;
+  position: relative;
+  /* z-index: -1; */
+  margin-top: -7rem;
+  /* background-color: aqua; */
+}
+
+.bgclr {
+  height: 25rem;
+  width: 50rem;
+  border-radius: 25px;
+  position: relative;
+  /* left: 10rem; */
+  top: 10rem;
+  background-color: rgb(255, 120, 71);
+  box-shadow: rgba(0, 0, 0, 0.4) 9px 9px 3px;
+}
+
+.imgset {
+  height: 25rem;
+  width: 35rem;
+  /* padding: 2px; */
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 10px 40px 0px;
+  position: absolute;
+  left: 40rem;
+  bottom: 10rem;
+}
+
+
+.imgset:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.formset {
+  height: 25rem;
+  width: 35rem;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 10px 40px 0px;
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+}
+
+.formset:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.need {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  font-size: 2.3rem;
+  margin-top: 25px;
+  margin-left: 15px;
+}
+
+.find {
+  font-family: Poppins, sans-serif;
+  color: rgb(95, 95, 95);
+  margin-top: 10px;
+  font-size: 1.2rem;
+  margin-left: 1.77rem;
+}
+
+.from {
+  height: 3.5rem;
+  width: 15rem;
+  margin-left: 2rem;
+  background-color: rgb(224, 223, 223);
+  font-family: Poppins, sans-serif;
+  border: 0;
+  border-radius: 10px;
+  padding-left: 1rem;
+}
+
+.To {
+  height: 3.5rem;
+  width: 15rem;
+  margin-left: 1rem;
+  background-color: rgb(224, 223, 223);
+  border: 0;
+  border-radius: 10px;
+  padding-left: 1rem;
+  font-family: Poppins, sans-serif;
+
+}
+
+.datepicker {
+  height: 3.5rem;
+  width: 25rem;
+  background-color: rgb(224, 223, 223);
+  border: 0;
+  border-radius: 10px;
+  margin-left: 4rem;
+  padding-left: 1rem;
+  font-family: Poppins, sans-serif;
+
+}
+
+.submit {
+  background-color: orangered;
+  height: 3.5rem;
+  width: 8rem;
+  border: 0;
+  border-radius: 20px;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-family: Poppins, sans-serif;
+  color: white;
+}
+
+
+/* sign-up page */
+.formhead {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 4.5rem;
+  font-family: Poppins,sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.signup {
+  height: 30rem;
+  width: 25rem;
+  border: 0;
+  border-radius: 10px;
+  position: relative;
+  left: 37%;
+  top: 5rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 40px 0px;
+  margin-bottom: 5rem;
+}
+.signup:hover{
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+.setemail {
+  margin-top: 4rem;
+  height: 3rem;
+  width: 18rem;
+  background-color: lightgray;
+  margin-left: 3rem;
+  border-radius: 7px;
+  border: 0;
+  padding-left: 10px;
+}
+
+.setname {
+  margin-top: 1rem;
+  height: 3rem;
+  width: 18rem;
+  background-color: lightgray;
+  margin-left: 3rem;
+  border-radius: 7px;
+  border: 0;
+  padding-left: 10px;
+}
+
+.setsubmit {
+  margin-top: 1rem;
+  height: 3rem;
+  width: 18rem;
+  background-color: orangered;
+  margin-left: 3rem;
+  border-radius: 7px;
+  border: 0;
+  color: white;
+}
+.setsubmit:hover{
+  opacity: 0.9;
+}
+.setlink {
+  margin-top: 2rem;
+  height: 3rem;
+  width: 13rem;
+  margin-left: 3rem;
+  border-radius: 7px;
+  border: 0;
+  color: black;
+}
+.setlink:hover{
+  color: orangered;
+}
+.newuser{
+  color: gray;
+  margin-left: 2rem ;
+}
+.newuser a{
+  color: #000;
+}
+.newuser a:hover{
+  color: orangered;
+}
+.setterms{
+  font-size: 13px;
+  margin-top: 5px;
+  text-align: center;
+  color: gray;
+}
+.setterms a{
+  color: rgb(90, 90, 90);
+}
+.setterms a:hover{
+  color: orangered;
+}
