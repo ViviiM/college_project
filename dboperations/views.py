@@ -2,8 +2,12 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
-from .models import Students, signup
+from .models import Students, signup,User
 from django.http import HttpResponse,JsonResponse
+from rest_framework import generics,viewsets
+from .serializers import UserSerializer
+
+
 # Create your views here.
 def student_data(request):
     student_names = Students.student_data.names_list
@@ -11,10 +15,19 @@ def student_data(request):
 # def student_data(request):
 #     return HttpResponse("Checking...")
 
-def userdate(request):
-    name = request.GET.get('fname')
+# def userdate(request):
+#     name = request.GET.get('fname')
 
 
 def newUser(request):
     objVar = signup
     return JsonResponse({'Just ':objVar})
+
+
+# class UserCreateViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+class RegisterUserView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

@@ -444,3 +444,329 @@ body {}
 .setterms a:hover{
   color: orangered;
 }
+
+/* trust and safety */
+
+.settrustbox {
+  font-family: Poppins, sans-serif;
+  background-color: lightskyblue;
+  height: 28rem;
+  width: 65rem;
+  border-radius: 20px;
+  /* margin-top: 1rem; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 40px 0px;
+  position: relative;
+  margin-bottom: 7rem;
+  top: 2rem;
+  left: 0.5rem;
+  /* z-index: -1; */
+  text-align: center;
+
+}
+
+.settrustbox:hover {
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+
+.safetyiconset {
+  position: relative;
+  top: 2rem;
+  height: 6rem;
+  width: 4.4rem;
+  padding-bottom: 1.5;
+
+}
+
+.safetyset {
+  color: black;
+  padding-top: 2.2rem;
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: -0.4rem;
+}
+
+.submitbtnset {
+  padding: 1.5rem;
+  border-radius: 3rem;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 0;
+  font-weight: 700;
+  width: 13rem;
+  height: 4.5rem;
+  font-size: 18px;
+}
+
+.settext {
+  color: rgba(0, 0, 0, 0.502);
+}
+
+/* Driving BOx */
+.drivebg {
+  height: 25rem;
+  width: 35rem;
+  background-color: rgb(254, 217, 149);
+  position: relative;
+  left: 49rem;
+  top: 22rem;
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.drivebg:hover {
+  transform: scale(1.019);
+  transition: all 0.3s;
+}
+
+.drivebg h1 {
+  font-size: 38px;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  padding-top: 2.5rem;
+  padding-left: 3rem;
+  margin-bottom: -2rem;
+}
+
+.drivebg tr td {
+  font-size: 55px;
+  padding-left: 3.5rem;
+  padding-top: 4rem;
+  font-weight: bold;
+}
+
+.drivebg tr td img {
+  padding-bottom: 2.8rem;
+}
+
+.drivebg p {
+  font-size: 21px;
+  margin-left: 3rem;
+  margin-top: -1.4rem;
+  color: #525252;
+
+}
+
+.drivebg button {
+  /* padding-left: 5rem; */
+  margin-left: 3rem;
+  border-radius: 3rem;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-weight: bold;
+  border: 0;
+  font-size: 18px;
+  font-weight: 700;
+  width: 13rem;
+  height: 4.5rem;
+}
+
+/* Trust Safety.js */
+.setquote {
+  height: 10rem;
+  width: 70rem;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 40px 0px;
+
+  /* margin-left: 10rem; */
+}
+
+.maindiv {
+  background-color: aqua;
+  position: absolute;
+  z-index: -1;
+  height: 10rem;
+  width: 70rem;
+  margin-left: 10rem;
+  border-radius: 20px;
+  box-shadow: aqua 30px 30px 3px;
+}
+
+.mainhead {
+  margin-left: 11rem;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  margin-bottom: 2rem;
+
+}
+
+.setquote h2 {
+  padding-top: 2.5rem;
+  padding-left: 1.8rem;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.setquote p {
+  padding-top: 0.5rem;
+  padding-left: 3rem;
+  font-family: Poppins, sans-serif;
+  /* font-weight: bold; */
+  font-size: 20px;
+  color: gray;
+}
+
+/* Verify Page: trust&safety.js */
+.des {}
+
+.imageandhead {
+  padding-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+/* Driver subpage: driverpage.js */
+
+.drivermain {
+  font-family: Poppins, sans-serif;
+}
+
+.drivermain img {
+  position: relative;
+  left: 42%;
+}
+
+.drivermain h1 {
+  font-weight: bolder;
+  font-size: 3.5rem;
+  left: 37%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.drivermain h2 {
+  margin-top: 10px;
+  left: 22%;
+  position: relative;
+}
+
+/* .driverpg2 {
+  margin-top: 2rem;
+  margin-left: -33rem;
+  position: relative;
+  left: 22%;
+  margin-top: 1.5rem;
+} */
+
+/* .driverpg3 {
+  margin-left: -32rem;
+  position: relative;
+  left: 22%;
+  margin-top: 3.5rem;
+  
+} */
+.driverpg4{
+  margin-left: -32rem;
+  margin-top: 2.4rem;
+  width: 1250px;
+  height:380px;
+}
+
+.driverpg5{
+  margin-top: 5rem;
+  margin-right: 13rem;
+  padding-left: 7rem;
+  margin-left: -11.7rem;
+  width: 600px;
+  height: 250px;
+  
+}
+
+.textdriver{
+  margin-top: 3.5rem;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  margin-left: 8rem;
+  text-indent: end;
+  
+}
+
+.textdriver2{
+  
+  font-size: 1.0rem;
+  padding-left: 1rem;
+  margin-left: 8rem;
+  
+  
+}
+
+/* Passengerpage.js */
+.safetypriority{
+  margin-left: 16rem;
+  background-color: lightblue;
+  font-family: Poppins, sans-serif;
+  height: 30rem;
+  width: 65rem;
+  border-radius: 17px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 40px 0px;
+  position: relative;
+  margin-bottom: 7rem;
+  top: 2rem;
+  text-align: left;
+}
+
+.safetypriority h3{
+  margin-top: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: bolder;
+  font-size:39px;
+}
+.safetypriority img{
+  position: relative;
+  top: 11rem;
+  height: 6rem;
+  width: 4.2rem;
+  padding-bottom: 5.5;
+  bottom: 1rem;
+  margin-right: 5rem;
+  left: 2rem;
+}
+.safetytext2{
+  font-size: 1.5rem;
+  left: 4rem;
+  padding-top: 5rem;
+  font-weight: bold;
+  padding-top: 3.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.reviews{
+  font-size: 1.2rem;
+  left: 4rem;
+  font-weight: medium;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.passpg5{
+  margin-left: -19rem;
+  margin-top: 2.4rem;
+  width: 1050px;
+  height:580px;
+  padding-right: 7rem;
+}
+
+.reviews2{
+  
+  font-size: 1.6rem;
+  left: 4rem;
+  font-weight: medium;
+  padding-left: 15rem;
+  padding-right: 2rem;
+}
+
+/* sustainabiltiy.js */
+.sust{
+  position: relative;
+  height:750px;
+  width:1500px;
+}
+.sust1{
+  position: relative;
+  height:300px;
+  width:1500px;
+}

@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'dboperations',
      # added new due to allowing the apis
     'rest_framework',
-    'corsheaders'
-    
+    # 'corsheaders'
 ]
 
 MIDDLEWARE = [
