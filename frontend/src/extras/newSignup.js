@@ -53,13 +53,14 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
             return;
         }
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/user_data/register/', {
+            const response = await axios.post('/user_data/register/', {
                 first_name: formData.firstName,
                 last_name: formData.lastName,
                 email: formData.email,
@@ -80,19 +81,20 @@ const Signup = () => {
             <h1 className='formhead'>Sign up to Poparide</h1>
             <form className='signup' onSubmit={handleSubmit}>
                 <input type='text' className='setemail' style={{ marginTop: '2.5rem' }} placeholder='First Name'
-                    name='fname' onChange={handleChange} required></input>
+                    name='firstName' onChange={handleChange} required></input>
                 <br />
-                <input type='text' className='setname' placeholder='Last Name' name='lname' onChange={handleChange} required></input>
+                <input type='text' className='setname' placeholder='Last Name' name='lastName' onChange={handleChange} required></input>
                 <br />
                 <input type='email' className='setname' placeholder='Email' name='email' onChange={handleChange} required></input>
                 <br />
                 <input type='text' className='setname' placeholder='Password'
-                    name='pwd' onChange={handleChange} required></input>
+                    name='password' onChange={handleChange} required></input>
                 <br />
-                <input type='text' className='setname' placeholder='Confirm Your Password' name='cnfpwd' onChange={handleChange} required></input>
+                <input type='text' className='setname' placeholder='Confirm Your Password' name='confirmPassword' onChange={handleChange} required></input>
                 <br />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
                 {success && <p style={{ color: 'green' }}>{success}</p>}
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+               
 
                 <input type='submit' className='setsubmit' placeholder='Submit' value='Sign up'></input>
                 <br />

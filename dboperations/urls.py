@@ -11,5 +11,5 @@ urlpatterns = [
     path('register/', RegisterUserView.as_view(), name='register'),
     # path('api/',include(router.urls)),
 
-    
+     path('login/', views.login, name='login'),
 ]

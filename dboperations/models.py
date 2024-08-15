@@ -111,3 +111,13 @@ class User(AbstractBaseUser):
 
     def _str_(self):
         return self.email
+    
+from django.db import models
+
+class LoginUser(models.Model):
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
+    
+    def __str__(self):
+        return self.email
+

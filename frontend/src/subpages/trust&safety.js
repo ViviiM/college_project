@@ -1,15 +1,18 @@
 import React from 'react'
 import Verify1 from './verify1.svg'
 import Verify2 from './verify2.svg'
+import Header from '../components/Layout/Header'
+import Footer from '../components/Layout/Footer'
 const trustsafety = () => {
     const mystyle = {
 
     }
     return (
         <div>
+                            <Header/>
+
             <div>
                 <h1 className='mainhead'>Trust & Safety</h1>
-
                 <div className='maindiv'>
                     <div style={mystyle} className='setquote'>
                         <h2>Since 2015, members have safely shared over 170 million km on Poparide.</h2>
@@ -50,6 +53,7 @@ const trustsafety = () => {
                 </div>
 
             </div>
+            <Footer/>
         </div>
     )
 }
