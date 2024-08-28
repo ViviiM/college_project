@@ -354,7 +354,7 @@ body {}
   justify-content: center;
   position: relative;
   top: 4.5rem;
-  font-family: Poppins,sans-serif;
+  font-family: Poppins, sans-serif;
   font-weight: bold;
   font-size: 30px;
 }
@@ -371,10 +371,12 @@ body {}
   box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 40px 0px;
   margin-bottom: 5rem;
 }
-.signup:hover{
+
+.signup:hover {
   transform: scale(1.01);
   transition: all 0.3s;
 }
+
 .setemail {
   margin-top: 4rem;
   height: 3rem;
@@ -407,9 +409,11 @@ body {}
   border: 0;
   color: white;
 }
-.setsubmit:hover{
+
+.setsubmit:hover {
   opacity: 0.9;
 }
+
 .setlink {
   margin-top: 2rem;
   height: 3rem;
@@ -419,29 +423,36 @@ body {}
   border: 0;
   color: black;
 }
-.setlink:hover{
+
+.setlink:hover {
   color: orangered;
 }
-.newuser{
+
+.newuser {
   color: gray;
-  margin-left: 2rem ;
+  margin-left: 2rem;
 }
-.newuser a{
+
+.newuser a {
   color: #000;
 }
-.newuser a:hover{
+
+.newuser a:hover {
   color: orangered;
 }
-.setterms{
+
+.setterms {
   font-size: 13px;
   margin-top: 5px;
   text-align: center;
   color: gray;
 }
-.setterms a{
+
+.setterms a {
   color: rgb(90, 90, 90);
 }
-.setterms a:hover{
+
+.setterms a:hover {
   color: orangered;
 }
 
@@ -658,43 +669,43 @@ body {}
   margin-top: 3.5rem;
   
 } */
-.driverpg4{
+.driverpg4 {
   margin-left: -32rem;
   margin-top: 2.4rem;
   width: 1250px;
-  height:380px;
+  height: 380px;
 }
 
-.driverpg5{
+.driverpg5 {
   margin-top: 5rem;
   margin-right: 13rem;
   padding-left: 7rem;
   margin-left: -11.7rem;
   width: 600px;
   height: 250px;
-  
+
 }
 
-.textdriver{
+.textdriver {
   margin-top: 3.5rem;
   font-size: 1.5rem;
   padding-left: 1rem;
   margin-left: 8rem;
   text-indent: end;
-  
+
 }
 
-.textdriver2{
-  
+.textdriver2 {
+
   font-size: 1.0rem;
   padding-left: 1rem;
   margin-left: 8rem;
-  
-  
+
+
 }
 
 /* Passengerpage.js */
-.safetypriority{
+.safetypriority {
   margin-left: 16rem;
   background-color: lightblue;
   font-family: Poppins, sans-serif;
@@ -708,14 +719,15 @@ body {}
   text-align: left;
 }
 
-.safetypriority h3{
+.safetypriority h3 {
   margin-top: 0;
   padding-left: 2rem;
   padding-right: 2rem;
   font-weight: bolder;
-  font-size:39px;
+  font-size: 39px;
 }
-.safetypriority img{
+
+.safetypriority img {
   position: relative;
   top: 11rem;
   height: 6rem;
@@ -725,7 +737,8 @@ body {}
   margin-right: 5rem;
   left: 2rem;
 }
-.safetytext2{
+
+.safetytext2 {
   font-size: 1.5rem;
   left: 4rem;
   padding-top: 5rem;
@@ -734,7 +747,8 @@ body {}
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.reviews{
+
+.reviews {
   font-size: 1.2rem;
   left: 4rem;
   font-weight: medium;
@@ -742,16 +756,16 @@ body {}
   padding-right: 2rem;
 }
 
-.passpg5{
+.passpg5 {
   margin-left: -19rem;
   margin-top: 2.4rem;
   width: 1050px;
-  height:580px;
+  height: 580px;
   padding-right: 7rem;
 }
 
-.reviews2{
-  
+.reviews2 {
+
   font-size: 1.6rem;
   left: 4rem;
   font-weight: medium;
@@ -760,13 +774,369 @@ body {}
 }
 
 /* sustainabiltiy.js */
-.sust{
+.sust {
   position: relative;
-  height:750px;
-  width:1500px;
+  height: 750px;
+  width: 1500px;
 }
-.sust1{
+
+.sust1 {
   position: relative;
-  height:300px;
-  width:1500px;
+  height: 300px;
+  width: 1500px;
+}
+
+/* profile.js */
+.profile {
+  background-color: whitesmoke;
+  height: 40rem;
+  /* background-image: url('./extras/homebus.jpeg'); */
+  background-repeat: no-repeat;
+}
+
+.profileimage {
+  background-color: #000;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  font-size: 70px;
+  color: wheat;
+  padding-top: 25px;
+  padding-left: 55px;
+  font-weight: bolder;
+  font-family: Poppins, sans-serif;
+}
+
+.profilehead h1 {
+  margin-left: 20rem;
+  width: 20rem;
+  font-weight: bolder;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  /* background-color: #000; */
+}
+
+.profileverify {
+  font-size: 30px;
+  font-weight: 300;
+  background-color: lightgray;
+  text-align: center;
+  height: 4rem;
+  padding-top: 10px;
+}
+
+.emailverify {
+  padding-left: 5rem;
+  padding-top: 1rem;
+  background-color: rgb(255, 244, 222);
+  padding-bottom: 1rem;
+}
+
+.emailverify h4 {
+  font-size: 20px;
+}
+
+.emailverify a {
+  padding-left: 3rem;
+  font-size: 15px;
+  text-decoration: none;
+  color: orangered;
+}
+
+.emailverify a:hover {
+  color: blue;
+}
+
+.phoneverify {
+  padding-left: 40rem;
+  background-color: rgb(255, 244, 222);
+  width: 61rem;
+}
+
+.phoneverify h4 {
+  font-size: 20px;
+}
+
+.phoneverify a {
+  padding-left: 3rem;
+  font-size: 15px;
+  text-decoration: none;
+  color: orangered;
+}
+
+.phoneverify a:hover {
+  color: blue;
+}
+
+/* find a ride */
+.setfind {
+  margin-left: 40rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.desfind {
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  margin-left: 30rem;
+}
+
+.desfind span {
+  font-weight: bold;
+}
+
+.findbox {
+  margin-left: 13rem;
+  background-color: transparent;
+  margin-bottom: 12rem;
+  margin-top: 2rem;
+  height: 8rem;
+}
+
+.findbox input {
+  height: 5rem;
+  margin-left: 2rem;
+  margin-top: 1.3rem;
+  width: 15rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: lightgray;
+  padding-left: 10px;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.findbox input[type=submit] {
+  background-color: orangered;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 40px 0px;
+}
+
+.findbox input[type=submit]:hover {
+  opacity: 0.9;
+}
+
+.tablefind {
+  margin-left: 17rem;
+  width: 60rem;
+  font-size: 19px;
+  text-align: center;
+  margin-top: -5rem;
+}
+
+.tablefind tr td {
+  font-size: 18px;
+  padding-top: 1rem;
+  font-weight: bold;
+}
+
+.tablefind tr th {
+  font-size: 22px;
+}
+
+.tablefind tr td span {
+  color: blue;
+  font-weight: bold;
+}
+
+.tablefind tr td a {
+  color: #000;
+}
+
+.suggest {
+  border-top: 1px solid;
+  list-style: none;
+  width: 15rem;
+  height: 3.5rem;
+  text-align: left;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 40px 0px;
+  padding-left: 6px;
+  padding-top: 5px;
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+}
+
+.react-datepicker__tab-loop {
+  position: absolute;
+}
+
+/* Postdrive */
+.posthead {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  margin-left: 25rem;
+}
+
+.driving {
+  margin-left: 20rem;
+  margin-bottom: 3rem;
+  width: 50rem;
+}
+
+.driving:hover {
+  transform: scale(1.01);
+  transition: all ease-in-out 0.3s;
+}
+
+.driving table tr td h2 {
+  padding-left: 3rem;
+}
+
+.driving table tr td span {
+  padding-left: 5rem;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+}
+
+.driving table tr td i {
+  padding-left: 12rem;
+  font-size: 18px;
+}
+/* 
+.needaride table tr td i {
+  border-radius: 10px;
+  font-size: 5rem;
+  padding-left: 3rem;
+  padding-top: 2rem;
+} */
+
+.needaride table tr {
+  text-align: center;
+  
+}
+/* trips.js */
+.posttrip{
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.postdes{
+    font-size: 18px;
+    color: #3a3a3a;
+    font-weight: normal;
+}
+.postdes a{
+  color: #3a3a3a;
+  font-weight: bold;
+}
+.triphead{
+  margin-left: 11rem;
+  font-family: Poppins, sans-serif;
+  margin-top: -1rem;
+}
+.flex-container{
+  display: flex;
+}
+.flex-container div{
+    height: 20rem;
+    width: 20rem;
+    border: 1px solid black;
+    margin-left: 10rem;
+}
+.flex-container label{
+  margin-left: 12rem;
+  margin-top: 4rem;
+  width: 2rem;
+  font-size: 14px;
+  font-family: Poppins,sans-serif;
+  font-weight: bold;
+}
+.flex-container input{
+  margin-left: 8rem;
+  height: 3.5rem;
+  width: 20rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: lightgray;
+  padding-left: 12px;
+}
+.flex-container button{
+  margin-top: 1rem;
+  margin-left: 8rem;
+  height: 3.5rem;
+  width: 20rem;
+  font-size:14px;
+  font-family: Poppins,sans-serif;
+  border-radius: 10px;
+  border: 1px dashed black;
+  background-color: white;
+}
+.todoset{
+  margin-left: 14.2rem;
+  margin-top: -2rem;
+  margin-bottom: 4rem;
+}
+.todocross{
+  cursor: pointer;
+  margin-left: -2rem;  
+  /* background-color: antiquewhite; */
+}
+.select{
+  margin-left: 12rem;
+  font-size: 17px;
+  font-family: Poppins,sans-serif;
+  margin-right: 2rem;
+}
+.radio{
+  width: 2rem;
+  height: 2rem;
+  margin-left: 2rem;
+}
+.radio-group {
+  margin-left: 25rem;
+  margin-top: -2rem;
+  display: flex;
+  gap: 40px;
+}
+
+.hidden-radio {
+  display: none;
+}
+
+.custom-radio {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0.5px solid orangered;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: orangered;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  background-color: white;
+}
+
+.hidden-radio:checked + .custom-radio {
+  background-color: orangered;
+  color: white;
+  border-color: orangered;
+}
+.posttripbtn{
+  height: 3.5rem;
+  width: 9rem;
+  font-family: Poppins;
+  font-weight: bold;
+  border: 0;
+  border-radius: 10px;
+  margin-left: 12rem;
+  background-color: orangered;
+  color: white;
+}
+.check{
+  margin-left: 13rem;
+  margin-bottom: 5rem;
+}
+.checkspan{
+  font-size: 14px;
+  font-family: Poppins;
+  display: flex;
+  width: 55rem;
+  /* height: 5rem; */
+  margin-top: -6rem;
+  margin-left: 15rem;
+  margin-bottom: 2rem;
 }

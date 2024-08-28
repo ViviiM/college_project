@@ -41,46 +41,46 @@ from django.conf import settings
 from pymongo import MongoClient
 
 
-# Create your models here.
-class Students:
-    def __init__(self) -> None:
-        pass
+# # Create your models here.
+# class Students:
+#     def __init__(self) -> None:
+#         pass
     
-    @staticmethod
-    def student_data():
-      # Connect to MongoDB
-        client = MongoClient(settings.MONGO_HOST, settings.MONGO_PORT)
-        db = client[settings.MONGO_DB_NAME]
+#     @staticmethod
+#     def student_data():
+#       # Connect to MongoDB
+#         client = MongoClient(settings.MONGO_HOST, settings.MONGO_PORT)
+#         db = client[settings.MONGO_DB_NAME]
         
-        # Access the students collection
-        users_collection = db['students']
+#         # Access the students collection
+#         users_collection = db['students']
 
-         # Retrieve all student_name fields
-        user_names = users_collection.find({}, {'_id': 0, 'user_name': 1})
+#          # Retrieve all student_name fields
+#         user_names = users_collection.find({}, {'_id': 0, 'user_name': 1})
 
-        # Extract and return the student names
-        names_list = [student['user_name'] for student in user_names]
+#         # Extract and return the student names
+#         names_list = [student['user_name'] for student in user_names]
 
-        # Close the connection
-        client.close()
+#         # Close the connection
+#         client.close()
 
-        return names_list
+#         return names_list
     
-def signup():
-        client = MongoClient(settings.MONGO_HOST, settings.MONGO_PORT)
-        db = client[settings.MONGO_DB_NAME]
+# def signup():
+#         client = MongoClient(settings.MONGO_HOST, settings.MONGO_PORT)
+#         db = client[settings.MONGO_DB_NAME]
         
 
           
-        # Access the students collection
-        users_collection = db['usersdb']
+#         # Access the students collection
+#         users_collection = db['usersdb']
 
-        # prinint
+#         # prinint
 
-        names = users_collection.find({},{'user_name':1})
+#         names = users_collection.find({},{'user_name':1})
 
-        client.close()
-        return names
+#         client.close()
+#         return names
 
 from djongo import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
@@ -112,12 +112,26 @@ class User(AbstractBaseUser):
     def _str_(self):
         return self.email
     
+
 from django.db import models
 
 class LoginUser(models.Model):
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
+    exemail = models.EmailField(unique=True)
+    expassword = models.CharField(max_length=50, default='admin')
     
     def __str__(self):
         return self.email
+    
 
+
+from djongo import models as DjongoModels
+
+class Driver(DjongoModels.Model):
+    origin = DjongoModels.CharField(max_length=255)
+    destinations = DjongoModels.CharField(max_length=255)
+    stops = DjongoModels.JSONField()
+    radio_choice = DjongoModels.IntegerField(choices=[(1, 'Option 1'), (2, 'Option 2'), (3, 'Option 3')])
+    is_checked = DjongoModels.BooleanField(default=False)
+
+    def __str__(self):
+        return self.origin

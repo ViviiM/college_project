@@ -9,7 +9,7 @@ const trustsafety = () => {
     }
     return (
         <div>
-                            <Header/>
+            <Header />
 
             <div>
                 <h1 className='mainhead'>Trust & Safety</h1>
@@ -23,7 +23,7 @@ const trustsafety = () => {
                         <h1 style={{ fontFamily: 'Poppins, sans-serif' }}>A community you can depend on</h1>
                         <h4 style={{ color: 'gray', fontWeight: 'normal', fontFamily: 'Poppins, sans-serif' }}>We go the extra mile to ensure our members have a safe experience on Poparide</h4>
                         <table className='verifytable'>
-                            <tr className='imageandhead' style={{marginTop:'10rem'}}>
+                            <tr className='imageandhead' style={{ marginTop: '10rem' }}>
                                 <td>
                                     <img src={Verify1}></img>
                                     <h1 >We verify all our drivers</h1>
@@ -53,7 +53,7 @@ const trustsafety = () => {
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

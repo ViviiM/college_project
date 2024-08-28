@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'dboperations',
      # added new due to allowing the apis
     'rest_framework',
-    # 'corsheaders'
+    'corsheaders',
+    'location'
 ]
 
 MIDDLEWARE = [
@@ -92,7 +93,15 @@ DATABASES = {
 MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 MONGO_DB_NAME = 'poparidedb'
-
+MONGI_URI = "mongodb://localhost:27017"
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': [
+#         'rest_framework.renderers.JSONRenderer',
+#     ],
+#     'DEFAULT_PARSER_CLASSES': [
+#         'rest_framework.parsers.JSONParser',
+#     ],
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

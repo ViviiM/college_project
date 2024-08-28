@@ -1,40 +1,11 @@
 import React, { useContext, useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
-import { AuthContext } from '../connections/createauth';
+// import { AuthContext } from '../connections/createauth';
 import axios from 'axios'
 const Signup = () => {
-    // const [post,setpost] = useState({})
-    // const [fname, setfname] = useState('')
-    // const [pwd, setpwd] = useState('')
-    // // const { login } = useContext(AuthContext);
-    // const handleChange = (e) => {
-    //     // setfname(e.target.value)
-    //     // setpost({...post,[e.target.name] : e.target.value,})
-    // }
-    // const handleChange2 = (e) => {
-    //     // setpwd(e.target.value)
-    // }
-    // // setpost({...post,[e.target.name]:e.target.value})
-    // const [message, setMessage] = useState('');
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     // console.log(fname + " " + pwd);
-    //     // await login(username, password);
-    //     try {
-    //         const response = await axios.post('http://127.0.0.1:8000/user_data', {"name":'Vivek'});
-    //         console.log(response.data);
-    //     } catch (error) {
-    //         console.error('Error posting data:', error);
-    //     }
-    // };
-
-    // console.log(message);
-    // // useEffect(() => {
-
-    // // }, []);
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         firstName: '',
@@ -60,14 +31,16 @@ const Signup = () => {
         }
 
         try {
-            const response = await axios.post('/user_data/register/', {
+            await axios.post('http://127.0.0.1:8000/user_data/register/', {
                 first_name: formData.firstName,
                 last_name: formData.lastName,
                 email: formData.email,
                 password: formData.password,
-            });
+            })
             setSuccess('User registered successfully!');
-            setError('');
+            setError("")
+            navigate('/signup')
+
         } catch (err) {
             setError('Failed to register user');
             setSuccess('');
@@ -79,22 +52,22 @@ const Signup = () => {
         <div >
             <Header />
             <h1 className='formhead'>Sign up to Poparide</h1>
-            <form className='signup' onSubmit={handleSubmit}>
+            <form className='signup' onSubmit={handleSubmit} >
                 <input type='text' className='setemail' style={{ marginTop: '2.5rem' }} placeholder='First Name'
-                    name='firstName' onChange={handleChange} required></input>
+                    name='firstName' onChange={handleChange} value={formData.firstName} required></input>
                 <br />
-                <input type='text' className='setname' placeholder='Last Name' name='lastName' onChange={handleChange} required></input>
+                <input type='text' className='setname' placeholder='Last Name' name='lastName'  value={formData.lastName} onChange={handleChange} required></input>
                 <br />
-                <input type='email' className='setname' placeholder='Email' name='email' onChange={handleChange} required></input>
+                <input type='email' className='setname' placeholder='Email' name='email' value={formData.email} onChange={handleChange} required></input>
                 <br />
-                <input type='text' className='setname' placeholder='Password'
+                <input type='password' className='setname' placeholder='Password'   value={formData.password}
                     name='password' onChange={handleChange} required></input>
                 <br />
-                <input type='text' className='setname' placeholder='Confirm Your Password' name='confirmPassword' onChange={handleChange} required></input>
+                <input type='password' className='setname' placeholder='Confirm Your Password' value={formData.confirmPassword} name='confirmPassword' onChange={handleChange} required></input>
                 <br />
                 {success && <p style={{ color: 'green' }}>{success}</p>}
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-               
+
 
                 <input type='submit' className='setsubmit' placeholder='Submit' value='Sign up'></input>
                 <br />

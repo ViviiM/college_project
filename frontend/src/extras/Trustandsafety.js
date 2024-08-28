@@ -5,7 +5,7 @@ const Trustandsafety = () => {
   return (
     <div>
       <div className='settrustbox'>
-        <img src={safety} className='safetyiconset'></img>
+        <img src={safety} className='safetyiconset' style={{mixBlendMode:'color-burn'}}></img>
         <h1 className='safetyset'>Trust and Safety</h1>
         <br></br>
         <h4 className='settext'>Poparide is designed with your safety in mind</h4>

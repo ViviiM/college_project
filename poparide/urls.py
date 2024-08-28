@@ -29,6 +29,7 @@ urlpatterns = [
     # path("ckeditor5/", include('django_ckeditor_5.urls')),
     path("", index , name = "index"),
     path("user_data/", include("dboperations.urls")),
+    path('api/',include('location.urls')),
 
 ]
 

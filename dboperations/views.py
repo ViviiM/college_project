@@ -1,54 +1,106 @@
 from django.shortcuts import render
+# from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Driver
+import json
 
 # Create your views here.
 from django.shortcuts import render
-from .models import Students, signup,User,LoginUser
+from .models import User,LoginUser
 from django.http import HttpResponse,JsonResponse
 from rest_framework import generics,viewsets
 from .serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
-
-# Create your views here.
-# def student_data(request):
-#     student_names = Students.student_data.names_list
-#     return JsonResponse({'student_names': student_names})
-# def student_data(request):
-#     return HttpResponse("Checking...")
-
-# def userdate(request):
-#     name = request.GET.get('fname')
-
-
-# def newUser(request):
-#     objVar = signup
-#     return JsonResponse({'Just ':objVar})
-
-
-# class UserCreateViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-
+# from passlib.hash import pbkdf2_sha256
+from rest_framework.views import APIView
+import urllib.parse
 class RegisterUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    
+from pymongo import MongoClient
+# from ..poparide import settings
+import bson.json_util as json_util
+def user_data(exemail,expass):
+    # Connect to MongoDB
+    flag = False
+    client = MongoClient("mongodb://localhost:27017")
+    db = client["poparidedb"]
+    print("Connected")
+    # Access the user collection
+    user_collection = db['dboperations_user']
+    # Retrieve user whose email is same as input fields
+    user_names = user_collection.find_one({'email': exemail})
+    # print(user_names['password'],expass)
+    if user_names:
+        flag = True
+        if expass == user_names['password']:
+            print("User found")
+        else:
+            flag=False
+            print('Password wrong')
+    else:
+        flag = False
+        print("user not found")
+    # Close the connection
+    client.close()
+    return user_names,flag
 
-
-
+from .serializers import LoginUserSerializer
 @api_view(['POST'])
 def login(request):
-    email = request.data.get('exemail')
-    password = request.data.get('expassword')
-
-    if not email or not password:
+    print(request.data)
+    userdata = request.data.get('data')
+    # expassword = request.data.get('expassword')
+    print("Hello from login",userdata)
+    if not user_data :
         return Response({'error': 'Email and password are required'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    name,flag = user_data(exemail=userdata['exemail'],expass=userdata['expassword'])
+    # for i in name:
+    #     print(i + "hiii")
+    # print(list(name))
+        # user ,created = LoginUser.objects.get_or_create(exemail=exemail, defaults={"expassword":expassword})
+        # if not created:
+        #     return Response({'error': 'User already exists'}, status=status.HTTP_400_BAD_REQUEST)
+    if not flag:
+        return Response({'error': 'User does not exist or password is incorrect'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+        return Response({'success': 'User authenticated' }, status=status.HTTP_200_OK)
+    return name
 
-    try:
-        user = LoginUser.objects.get(email=email)
-        if user.password == password:
-            return Response({'success': 'User authenticated'}, status=status.HTTP_200_OK)
+@api_view(['GET'])
+def login_data(request):
+    alldata = request.GET.get('exemail')
+    aldata =  urllib.parse.unquote(alldata)
+    elldata = request.GET.get('expassword')
+    print("heyyy",aldata , elldata)
+    usernames  = user_data(exemail=aldata,expass=elldata)
+    print("Hello",json_util.dumps(usernames))
+
+    return HttpResponse(json_util.dumps(usernames), content_type='application/json')
+
+
+
+@csrf_exempt
+def save_driver_details(request):
+    if request.method == 'POST':    
+        data = json.loads(request.body)
+
+        if data.get('is_checked'):  # Check if the checkbox is checked
+            driver = Driver(
+                origin=data['origin'],
+                destinations=data['destinations'],
+                stops=data['stops'],
+                radio_choice=data['radio_choice'],
+                is_checked=data['is_checked']
+            )
+            driver.save()
+            return JsonResponse({'message': 'Driver details saved successfully!'})
         else:
-            return Response({'error': 'Invalid password'}, status=status.HTTP_401_UNAUTHORIZED)
-    except LoginUser.DoesNotExist:
-        return Response({'error': 'User does not exist'}, status=status.HTTP_404_NOT_FOUND)
+            return JsonResponse({'message': 'Checkbox not checked, data not saved.'}, status=400)
+
+
+    return JsonResponse({'message': 'Invalid request'}, status=400)

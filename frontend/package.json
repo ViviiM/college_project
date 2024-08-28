@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.3",
+    "axios": "^1.7.4",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.19",
     "poparide": "file:",
