@@ -4,15 +4,15 @@ import img from './icon.png'
 import ico from './ind.ico'
 import Handlemouseover from '../../extras/handlemouseover.js'
 import axios from "axios";
-import { Exportdata } from "../../extras/Signup.js";
+// import { Exportdata } from "../../extras/Signup.js";
 import { useAuth } from "../../context/AuthContext.js";
 import { useData } from "../../context/DataContext.js";
 import SideBar from '../../extras/Sidebar.js'
-const Header = ({ details }) => {
+const Header = ({ }) => {
   const { isLoggedIn, logout } = useAuth();
   const { globaldata } = useData()
   console.log("status", isLoggedIn);
-  console.log("all data ", globaldata)
+  console.log("all data ", globaldata);
   // const {exemail,expassword} = details
   // const navigate = useNavigate()
   // const location = useLocation()
@@ -44,23 +44,29 @@ const Header = ({ details }) => {
     setDropdownVisibleside(false);
   };
   // console.log("exemail expass" , exemail ,expassword ,'all');
-  console.log("global" , globaldata);
+  console.log("global", globaldata);
   const [getdata, setgetdata] = useState([])
-
-
   useEffect(() => {
     if (isLoggedIn) {
       try {
-        const response = axios.get('/user_data/login_data/', { globaldata });
-        // setgetdata(response.data)
-        console.log("Response from login_data" , response.data);
-        
+        axios.get('http://127.0.0.1:8000/user_data/login_data/', { params: globaldata }).then((res) => { console.log("Then", res.data); setgetdata(res.data) }).catch((error) => { console.log(error); })
       } catch (error) {
         console.log(error);
       }
     }
   }, [isLoggedIn])
 
+  console.log("Get Response", getdata);
+  const [first_name,setfirst_name] = useState([])
+  useEffect(()=>{
+    if (getdata.length != 0) {
+      const first = getdata.replace(/'/g, '"');
+      let result = JSON.parse(first);
+      setfirst_name([...result,])
+      console.log(result);
+      first_name.map((val)=>{console.log(val)});
+    }
+  },[])
   return (
     <>
 
@@ -100,7 +106,7 @@ const Header = ({ details }) => {
             <button className="icons" onMouseEnter={handlevisible} onMouseLeave={handlehide}> <i class="fa fa-question-circle-o" aria-hidden="true"></i>  How it works
               {isDropdownVisible && <Handlemouseover />}
             </button>
-            {isLoggedIn ? <Link className="icons" onClick={logout} to='/' onMouseEnter={handlevisibleside} onMouseLeave={handlehideside} >Profile
+            {isLoggedIn ? <Link className="icons" onClick={logout} to='/' onMouseEnter={handlevisibleside} onMouseLeave={handlehideside} >{getdata ? first_name : "Profiles"}
               {isDropdownVisibleSide && <SideBar />}</Link> : <Link className="icons" to='/signup' > Sign-in <i class="fa fa-arrow-right" aria-hidden="true"></i>
             </Link>}
           </div>

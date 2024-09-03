@@ -6,7 +6,7 @@ const DataContext = createContext();
 // Create a provider component
 export const DataProvider = ({ children }) => {
   // Define the state and its updater function
-  const [globaldata, setGlobalData] = useState(null);
+  const [globaldata, setGlobalData] = useState();
 
   return (
     <DataContext.Provider value={{ globaldata, setGlobalData }}>
