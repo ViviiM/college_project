@@ -1,24 +1,35 @@
-import React, { useState } from 'react'
-import img1 from './img1.png'
-import img2 from './img2.png'
-import {CSSTransition} from 'react-transition-group'; // ES6
+import React, { useState, useEffect } from 'react';
+import img1 from './Travel Image.jpeg';
+import img2 from './TravelImage2.jpg';
+import img3 from './Travel Image.jpeg';
+import img4 from './TravelImage2.jpg';
+import img5 from './Travel Image.jpeg';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Imgchngr = () => {
-    const [image,setimage] = useState(img1)
-    const s = ()=>{
-        setimage(img2)
-        if(image == img2){
-            setimage(img1)
-        }
-    }
-    setTimeout(
-       s ,1900
-    )
-  return (
-    <div>
-          <img src={image} className='imgset' alt='Poparide'/>
-    </div>
-  )
-}
+	const images = [img1, img2, img3, img4, img5];
+	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-export default Imgchngr
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+		}, 2000);
+		return () => clearInterval(interval);
+	}, [images.length]);
+
+	return (
+		<div className="image-container">
+			<TransitionGroup>
+				<CSSTransition
+					key={currentImageIndex}
+					timeout={500}
+					classNames="fade"
+				>
+					<img src={images[currentImageIndex]} className='imgset' alt='Poparide' />
+				</CSSTransition>
+			</TransitionGroup>
+		</div>
+	);
+};
+
+export default Imgchngr;

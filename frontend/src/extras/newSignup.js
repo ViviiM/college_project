@@ -3,10 +3,13 @@ import { Link,useNavigate } from "react-router-dom";
 import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
 // import { AuthContext } from '../connections/createauth';
+import { UserContext } from '../context/UserAuthContext';
+import swal from 'sweetalert2';
 import axios from 'axios'
 const Signup = () => {
+    const {JWTsignup , error , token } = useContext(UserContext)
     const navigate = useNavigate()
-
+    // const [token , settoken] = useState()
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -15,7 +18,7 @@ const Signup = () => {
         confirmPassword: '',
     });
 
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
     const handleChange = (e) => {
@@ -26,23 +29,46 @@ const Signup = () => {
         e.preventDefault();
         console.log(formData);
         if (formData.password !== formData.confirmPassword) {
-            setError('Passwords do not match');
+            // setError('');
+            swal.fire({
+                title: "Passwords do not match",
+                icon: "error",
+                toast: true,
+                timer: 6000,
+                position: 'top-right',
+                timerProgressBar: true,
+                showConfirmButton: false,
+            })
             return;
         }
 
         try {
-            await axios.post('http://127.0.0.1:8000/user_data/register/', {
-                first_name: formData.firstName,
-                last_name: formData.lastName,
-                email: formData.email,
-                password: formData.password,
-            })
+          
+            await JWTsignup(formData.firstName + " " + formData.lastName , formData.email , formData.password)
             setSuccess('User registered successfully!');
-            setError("")
-            navigate('/signup')
+            console.log("Success",success);
+            console.log("Error",error);
+            
+            if (token){
+                swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    toast: true,
+                    timer: 6000,
+                    position: 'top-right',
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                })
+            }
+            if(error){
+                navigate('/signup')
+            }else{
+                navigate('/')
 
+            }
+            // setError("")
         } catch (err) {
-            setError('Failed to register user');
+            // setError('Failed to register user');
             setSuccess('');
         }
     };

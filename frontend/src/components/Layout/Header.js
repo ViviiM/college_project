@@ -1,3 +1,4 @@
+
 import React, { useState, useContext, useEffect } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import img from './icon.png'
@@ -7,31 +8,24 @@ import axios from "axios";
 // import { Exportdata } from "../../extras/Signup.js";
 import { useAuth } from "../../context/AuthContext.js";
 import { useData } from "../../context/DataContext.js";
+import { UserContext } from "../../context/UserAuthContext.js";
 import SideBar from '../../extras/Sidebar.js'
 const Header = ({ }) => {
-  const { isLoggedIn, logout } = useAuth();
-  const { globaldata } = useData()
+  const { token, user ,  init } = useContext(UserContext)
+  const { isLoggedIn } = useAuth();
+  console.log("Token", token);
   console.log("status", isLoggedIn);
-  console.log("all data ", globaldata);
-  // const {exemail,expassword} = details
-  // const navigate = useNavigate()
-  // const location = useLocation()
-  // const {state} = location;
-  // console.log("state",state);
-  // if (count == 0){
-  //   console.log("No props");
-  // }
-  // const {data,setdata} = useContext(Exportdata)
-  // console.log("hello" , details);
-  // const handleLogout = () =>{
-  //   onLogout();
-  //   navigate('/'); 
+  console.log("User", user);
+  console.log("Initial" , init);
+  // if(user != null){
+  //   user = JSON.parse(user)
+  //   const mutableuser = {...user}
+  //   console.log(mutableuser.name);
   // }
   const [isDropdownVisible, setDropdownVisible] = useState(false)
   const handlevisible = () => {
     setDropdownVisible(true);
   };
-
   const handlehide = () => {
     setDropdownVisible(false);
   };
@@ -43,30 +37,11 @@ const Header = ({ }) => {
   const handlehideside = () => {
     setDropdownVisibleside(false);
   };
-  // console.log("exemail expass" , exemail ,expassword ,'all');
-  console.log("global", globaldata);
-  const [getdata, setgetdata] = useState([])
-  useEffect(() => {
-    if (isLoggedIn) {
-      try {
-        axios.get('http://127.0.0.1:8000/user_data/login_data/', { params: globaldata }).then((res) => { console.log("Then", res.data); setgetdata(res.data) }).catch((error) => { console.log(error); })
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }, [isLoggedIn])
 
-  console.log("Get Response", getdata);
-  const [first_name,setfirst_name] = useState([])
-  useEffect(()=>{
-    if (getdata.length != 0) {
-      const first = getdata.replace(/'/g, '"');
-      let result = JSON.parse(first);
-      setfirst_name([...result,])
-      console.log(result);
-      first_name.map((val)=>{console.log(val)});
-    }
-  },[])
+  const [getdata, setgetdata] = useState([])
+
+  const [first_name, setfirst_name] = useState([])
+
   return (
     <>
 
@@ -106,9 +81,12 @@ const Header = ({ }) => {
             <button className="icons" onMouseEnter={handlevisible} onMouseLeave={handlehide}> <i class="fa fa-question-circle-o" aria-hidden="true"></i>  How it works
               {isDropdownVisible && <Handlemouseover />}
             </button>
-            {isLoggedIn ? <Link className="icons" onClick={logout} to='/' onMouseEnter={handlevisibleside} onMouseLeave={handlehideside} >{getdata ? first_name : "Profiles"}
-              {isDropdownVisibleSide && <SideBar />}</Link> : <Link className="icons" to='/signup' > Sign-in <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </Link>}
+            {token ?
+              <div className="nametag" onMouseEnter={handlevisibleside} onMouseLeave={handlehideside} > {init ? init : " "}
+                {isDropdownVisibleSide && <SideBar />}</div>
+              :
+              <Link className="icons" to='/signup' > Sign-in <i class="fa fa-arrow-right" aria-hidden="true"></i></Link>
+            }
           </div>
         </div>
       </nav>

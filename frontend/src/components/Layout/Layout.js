@@ -7,6 +7,7 @@ const Layout = ({ children,title,description,keyword,author }) => {
     <div>
       <Helmet>
         <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
         <meta name="description" content={description}/>
         <meta name="keyword"  content={keyword}/>
         <meta name="author" content={author}/>

@@ -4,7 +4,10 @@ import Footer from '../components/Layout/Footer'
 import Homebus from '../extras/homebus.jpeg'
 import Bell from './bell.jpg'
 import { Link, Route, Routes } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 const PostDrive = () => {
+    const {getdrivers} = useAuth()
+    console.log("Get drivers");
     return (
         <div>
             <Header />
@@ -20,7 +23,7 @@ const PostDrive = () => {
                 </table>
                 </Link>
             </div>
-            <div className='setquote driving '><Link to='/post' style={{ textDecoration: 'none', color: 'black' }}>
+            <div className='setquote driving '><Link to='/list' style={{ textDecoration: 'none', color: 'black' }}>
                 <table>
                     <tr>
                         <td><img src={Bell} style={{ borderRadius: "10px", height: "10rem", width: "10rem", marginLeft: "1rem", padding: '1.2rem' }} /></td>

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import RunningClock from './runningclock.jpg';
 import Caution from './caution.jpg'
 import Nocash from './nocash.jpg'
+import Swal from "sweetalert2";
+
 const CardComponent = () => {
     const [isChecked, setIsChecked] = useState(false);
     const navigate = useNavigate();
@@ -17,8 +19,12 @@ const CardComponent = () => {
       if (isChecked) {
         navigate("/trip"); // Replace with your target route
       } else {
-        alert("Please check the box before proceeding.");
-      }
+        Swal.fire({
+          icon: "error",
+          title: "Checkbox not checked...",
+          text: "Please accept the Rules"
+          // footer: '<a href="#">Why do I have this issue?</a>'
+        });      }
     };
   const cardsData = [
     {

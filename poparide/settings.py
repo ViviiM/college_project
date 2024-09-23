@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'location',
     #For JWT Authentication
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    # 'accounts',
+    'myaccount'
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -87,10 +89,10 @@ WSGI_APPLICATION = 'poparide.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
      'default': {
         'ENGINE': 'djongo',
         'NAME': 'poparidedb',
@@ -101,14 +103,7 @@ MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 MONGO_DB_NAME = 'poparidedb'
 MONGI_URI = "mongodb://localhost:27017"
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': [
-#         'rest_framework.renderers.JSONRenderer',
-#     ],
-#     'DEFAULT_PARSER_CLASSES': [
-#         'rest_framework.parsers.JSONParser',
-#     ],
-# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -140,7 +135,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -158,19 +152,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # JWT settings
 from datetime import timedelta
-
+# This Settings are For My JWT based logi/signup
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
+    'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,  # Use your Django SECRET_KEY
-    'VERIFYING_KEY': None,
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'USER_ID_FIELD': 'email',
-    'USER_ID_CLAIM': 'email',
 }
+
 # AUTHENTICATION_BACKENDS = (
 #         'django.contrib.auth.backends.ModelBackend',
 #     )

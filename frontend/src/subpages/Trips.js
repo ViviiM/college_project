@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../components/Layout/Header'
 import Footer from '../components/Layout/Footer'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useAuth } from '../context/AuthContext'
+import { UserContext } from '../context/UserAuthContext'
+import swal from 'sweetalert2'
 
 export const Trips = () => {
-  const {isLoggedIn} = useAuth()
+  const { username, useremail } = useContext(UserContext)
+  const { isLoggedIn , saveDriver } = useAuth()
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
+    name: username,
+    email: useremail,
     origin: '',
     destinations: '',
     stops: [],
+    price: 0,
     radio_choice: 0,
     is_checked: false,
   });
-
-  // const [task, setTask] = useState("")
-  // const [todo, setTodo] = useState([])
+  
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type, checked , price } = e.target;
     if (type === 'checkbox') {
       setFormData({ ...formData, [name]: checked });
     } else if (name == 'options') {
@@ -31,6 +35,7 @@ export const Trips = () => {
     }
 
   }
+  console.log(formData);
   const handleStopChange = (index, value) => {
     const newStops = [...formData.stops];
     newStops[index] = value;
@@ -42,7 +47,6 @@ export const Trips = () => {
     setcount(count - 1)
   };
 
-  // setFormData({...formData , sops : [...todo, task]})
   const [count, setcount] = useState(0)
   console.log(formData);
   const handleAdd = (e) => {
@@ -68,22 +72,25 @@ export const Trips = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!isLoggedIn){
+    if (!isLoggedIn) {
       navigate('/signup');
-    }else{
-      if (formData.is_checked) {
-        axios.post('http://127.0.0.1:8000/user_data/save-driver/', formData)
-          .then(response => alert(response.data.message))
-          .catch(error => console.error('Error:', error));
-      } else {
-        alert('Please check the checkbox to save the data.');
-      }
+    } else {
+        saveDriver(formData)
     }
   };
+
+  const handleRupee = ()=>{
+    swal.fire({
+      icon: "info",
+      title: "Currency support",
+      text: "Please note that prices on Poparide are in Indian Rupees (INR) \n We intend to support multiple currencies soon."
+      // footer: '<a href="#">Why do I have this issue?</a>'
+    });
+  }
   return (
     <div>
       <Header />
-      <form  onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <h1 className='mainhead posttrip'>Post a trip </h1>
         <p className='mainhead postdes' >Cover your driving costs by filling your seats when you’re driving from A to B. <Link to='/driver'>More info</Link></p>
         <hr className='container w-50 mb-5' />
@@ -127,6 +134,15 @@ export const Trips = () => {
         </div>
 
         <hr className='container w-50 mb-5 mt-5' />
+            <div>
+            <h4 className='mainhead'>Pricing</h4>
+            <div className='mainhead' style={{marginTop:'-1rem',fontWeight:'normal'}}>Enter a fair price per seat to cover your gas and other expenses. Note that all prices are <strong onClick={handleRupee}><u>INR</u></strong></div>
+            <div style={{position:"absolute",left:'21.7rem',fontSize:'20px',bottom:'-21.3rem'}}>₹</div><label className='select' >Price per Seat</label>
+            <input type='number' className='price' name='price' maxLength={3} onChange={handleChange} />
+            </div>
+
+        <hr className='container w-50 mb-5 mt-5' />
+
         <input type='checkbox' className='check' name="is_checked" checked={formData.is_checked} onChange={handleChange} /> <span className='container checkspan'>I agree to these rules, to the Driver Cancellation Policy,
           Terms of Service and the Privacy Policy, and I understand that my account could be suspended if I break the rules</span>
         <input type='submit' value={"Post a trip"} className='posttripbtn'></input>
